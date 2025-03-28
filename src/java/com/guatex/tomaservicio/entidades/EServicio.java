@@ -17,31 +17,31 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "SERVICIO")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class EServicio {
-    
+
     @XmlElement(name = "TIPO_USUARIO")
     private String tipoUsuario;
-    
+
     @XmlElement(name = "NOMBRE_REMITENTE")
     private String nomrem;
-    
+
     @XmlElement(name = "TELEFONO_REMITENTE")
     private String telrem;
-    
+
     @XmlElement(name = "DIRECCION_REMITENTE")
     private String dirrem;
-    
+
     @XmlElement(name = "MUNICIPIO_ORIGEN")
     private String mncpori;
-    
+
     @XmlElement(name = "PUNTO_ORIGEN")
     private String ptoori;
-    
+
     @XmlElement(name = "ESTA_LISTO")
     private String estaListo;
-    
+
     @XmlElement(name = "CODORIGEN")
     private String codorigen;
-    
+
     @XmlElement(name = "GUIA")
     private EGUIA EGUIA;
 
@@ -141,6 +141,11 @@ public class EServicio {
 
     public void setEGUIA(EGUIA EGUIA) {
         this.EGUIA = EGUIA;
+    }
+
+    @Override
+    public String toString() {
+        return "EServicio{" + "tipoUsuario=" + tipoUsuario + ", nomrem=" + nomrem + ", telrem=" + telrem + ", dirrem=" + dirrem + ", mncpori=" + mncpori + ", ptoori=" + ptoori + ", estaListo=" + estaListo + ", codorigen=" + codorigen + ", EGUIA=" + EGUIA + '}';
     }
 
 }

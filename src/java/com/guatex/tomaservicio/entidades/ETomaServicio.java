@@ -5,6 +5,9 @@
  */
 package com.guatex.tomaservicio.entidades;
 
+
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -27,6 +30,7 @@ public class ETomaServicio {
     @XmlElement(name = "PASSWORD")
     private String password;
 
+    @NotNull(message = "El xml enviado viene incompleto. El servicio no puede ser null.")
     @XmlElement(name = "SERVICIO")
     private EServicio servicio;
 
@@ -77,6 +81,11 @@ public class ETomaServicio {
 
     public void setServicio(EServicio servicio) {
         this.servicio = servicio;
+    }
+
+    @Override
+    public String toString() {
+        return "ETomaServicio{" + "padre=" + padre + ", usuario=" + usuario + ", password=" + password + ", servicio=" + servicio + '}';
     }
 
 }

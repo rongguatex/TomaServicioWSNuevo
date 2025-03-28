@@ -17,13 +17,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "LINEA_DETALLE_GUIA")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ELineaDetalleGuia {
-    
+
     @XmlElement(name = "PIEZAS_DETALLE")
     private String pieDet;
-    
+
     @XmlElement(name = "TIPO_ENVIO_DETALLE")
     private String tipEnvDet;
-    
+
     @XmlElement(name = "PESO_DETALLE_GUIA")
     private String pesoDet;
 
@@ -58,5 +58,11 @@ public class ELineaDetalleGuia {
 
     public void setPesoDet(String pesoDet) {
         this.pesoDet = pesoDet;
-    }  
+    }
+
+    @Override
+    public String toString() {
+        return "ELineaDetalleGuia{" + "pieDet=" + pieDet + ", tipEnvDet=" + tipEnvDet + ", pesoDet=" + pesoDet + '}';
+    }
+
 }

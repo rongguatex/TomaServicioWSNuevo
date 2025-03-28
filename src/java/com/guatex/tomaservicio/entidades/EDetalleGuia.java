@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "DETALLE_GUIA")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class EDetalleGuia {
-    
+
     @XmlElement(name = "LINEA_DETALLE_GUIA")
-    private  ELineaDetalleGuia linDetGuia;
+    private ELineaDetalleGuia linDetGuia;
 
     public EDetalleGuia() {
     }
@@ -35,4 +35,10 @@ public class EDetalleGuia {
     public void setLinDetGuia(ELineaDetalleGuia linDetGuia) {
         this.linDetGuia = linDetGuia;
     }
+
+    @Override
+    public String toString() {
+        return "EDetalleGuia{" + "linDetGuia=" + linDetGuia + '}';
+    }
+
 }

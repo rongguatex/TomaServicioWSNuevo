@@ -272,4 +272,10 @@ public class EGUIA {
     public void setCampo4(String campo4) {
         this.campo4 = campo4;
     }
+
+    @Override
+    public String toString() {
+        return "EGUIA{" + "llaveCliente=" + llaveCliente + ", codVal=" + codVal + ", seAbre=" + seAbre + ", codCob=" + codCob + ", nomDes=" + nomDes + ", telDes=" + telDes + ", dirDes=" + dirDes + ", mncpDes=" + mncpDes + ", ptoDes=" + ptoDes + ", desEnv=" + desEnv + ", recogeOfi=" + recogeOfi + ", codDestino=" + codDestino + ", detGuia=" + detGuia + ", observaciones=" + observaciones + ", impGuia=" + impGuia + ", campo1=" + campo1 + ", campo2=" + campo2 + ", campo3=" + campo3 + ", campo4=" + campo4 + '}';
+    }
+    
 }
