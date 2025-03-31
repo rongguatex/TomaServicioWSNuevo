@@ -5,6 +5,7 @@
  */
 package com.guatex.tomaservicio.entidades;
 
+import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -18,60 +19,81 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class EGUIA {
     
+    @Size(max = 200, message = "La llave del clien te sobrepasa los 200 caracteres.")
     @XmlElement(name = "LLAVE_CLIENTE")
     private String llaveCliente;
     
+    @Size(max = 15, message = "El codigo de valor a cobrar sobrepasa los 15 caracteres.")
     @XmlElement(name = "COD_VALORACOBRAR")
     private String codVal;
     
+    @Size(max = 1, message = "El campo se abre paquete únicamente acepta los valores S(si) / N(no). ")
     @XmlElement(name = "SEABREPAQUETE")
     private String seAbre;
     
+    @NotNull(message = "El campo es obligatorio. Ingresar el código de guía.")
+    @Size(max = 10, message = "El código de cobro de la guía sobrepasa los 10 caracteres.")
     @XmlElement(name = "CODIGO_COBRO_GUIA")
     private String codCob;
     
+    @Size(max = 100, message = "El nombre de destinatario sobrepasa los 100 caracteres.")
     @XmlElement(name = "NOMBRE_DESTINATARIO")
     private String nomDes;
     
+    @Size(max = 20, message = "El Telefóno del destinatario sobrepasa los 20 caracteres.")
     @XmlElement(name = "TELEFONO_DESTINATARIO")
     private String telDes;
     
+    @Size(max = 100, message = "La dirección del destinatario sobrepasa los 100 caracteres.")
     @XmlElement(name = "DIRECCION_DESTINATARIO")
     private String dirDes;
     
+    @Size(max = 50, message = "El municipio de destino sobrepasa los 50 caracteres.")
     @XmlElement(name = "MUNICIPIO_DESTINO")
     private String mncpDes;
     
+    @Size(max = 10, message = "El punto de destino, sobrepasa los 10 caracteres.")
     @XmlElement(name = "PUNTO_DESTINO")
     private String ptoDes;
     
+    @Size(max = 100, message = "La descripción de envío sobrepass los 100 caracteres")
     @XmlElement(name = "DESCRIPCION_ENVIO")
     private String desEnv;
     
+    @Size(max = 1, message = "El campo de recoge en oficina únicamente acepta los valores S(si) / N(no). ")
     @XmlElement(name = "RECOGE_OFICINA")
     private String recogeOfi;
     
+    @NotNull(message = "El campo es obligatorio. Ingresar el código de destino.")
+    @Size(max = 10, message = "El código de destino sobrepasa los 10 caracteres.")
     @XmlElement(name = "CODDESTINO")
     private String codDestino;
-    
+   
+   @NotNull(message = "El xml enviado viene incompleto. El detalle de la guía no contiene información.")
    @XmlElement(name = "DETALLE_GUIA")
    private EDetalleGuia detGuia;
    
+   @Size(max = 100, message = "Las observaciones de la entrega sobrepasa los 100 caracteres.")
    @XmlElement(name = "OBSERVACIONES_ENTREGA")
    private String observaciones;
    
+   @Size(max = 1, message = "El campo de impresión de guía únicamente acepta los valores S(si) / N(no).")
    @XmlElement(name = "IMPRIME_GUIA")
    private String impGuia;
    
+   @Size(max = 200, message = "El campo 1 sobrepasa los 200 caracteres. ")
    @XmlElement(name = "CAMPO1")
    private String campo1;
    
+   @Size(max = 200, message = "El campo 1 sobrepasa los 200 caracteres. ")
    @XmlElement(name = "CAMPO2")
    private String campo2;
    
+   @Size(max = 200, message = "El campo 1 sobrepasa los 200 caracteres. ")
    @XmlElement(name = "CAMPO3")
    private String campo3;
    
+   @Size(max = 200, message = "El campo 1 sobrepasa los 200 caracteres. ")
    @XmlElement(name = "CAMPO4")
    private String campo4;
 

@@ -6,8 +6,7 @@
 package com.guatex.tomaservicio.entidades;
 
 
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -21,12 +20,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ETomaServicio {
 
+    @Size(max = 10, message = "El código de cobro sobrepasa los 10 caracteres.")
     @XmlElement(name = "CODIGO_COBRO")
     private String padre;
 
+    @NotNull(message = "El campo es obligatorio. Ingresar el usuario.")
+    @Size(max = 50, message = "El campo de usuario sobrepasa los 50 caracteres.")
     @XmlElement(name = "USUARIO")
     private String usuario;
 
+    @NotNull(message = "El campo es obligatorio. Ingresar la contraseña.")
+    @Size(max = 10, message = "La contraseña sobrepasa los 10 caracteres.")
     @XmlElement(name = "PASSWORD")
     private String password;
 

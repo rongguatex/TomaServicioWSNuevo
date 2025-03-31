@@ -12,25 +12,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author RGALICIA
+ * @author PJUNIOR-5
  */
-@XmlRootElement(name = "GUIAS")
+@XmlRootElement(name = "GUIAS_HIJAS")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Guias {
+public class GuiasHijas {
     
-    @XmlElement(name = "GUIA")
-    private Guia guia;
+    @XmlElement(name = "HGUIAHIJA")
+    private String hGuiaHija;
 
-    public Guia getGuia() {
-        return guia;
+    public String gethGuiaHija() {
+        return hGuiaHija;
     }
 
-    public void setGuia(Guia guia) {
-        this.guia = guia;
+    public void sethGuiaHija(String hGuiaHija) {
+        this.hGuiaHija = hGuiaHija;
     }
 
     @Override
     public String toString() {
-        return "Guias{" + "guia=" + guia + '}';
+        return "GuiasHijas{" + "hGuiaHija=" + hGuiaHija + '}';
     }
 }

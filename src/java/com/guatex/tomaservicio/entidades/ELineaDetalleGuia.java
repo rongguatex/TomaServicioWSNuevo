@@ -5,6 +5,7 @@
  */
 package com.guatex.tomaservicio.entidades;
 
+import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -18,13 +19,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ELineaDetalleGuia {
 
+    @NotNull(message = "El campo es obligatorio. Ingresar el detalle de las piezas.")
+    @Size(max = 5, message = "El detalle de las piezas sobrepasa los 5 caracteres.")
     @XmlElement(name = "PIEZAS_DETALLE")
     private String pieDet;
 
+    @NotNull(message = "El campo es obligatorio. Ingresar el detalle de tipo de envío.")
+    @Size(max = 10, message = "El detalle del tipo de envío sobrepasa los 10 caracteres.")
     @XmlElement(name = "TIPO_ENVIO_DETALLE")
     private String tipEnvDet;
 
-    @XmlElement(name = "PESO_DETALLE_GUIA")
+    @NotNull(message = "El campo es obligatorio. Ingresar el detalle del peso.")
+    @Size(max = 8, message = "El detalle del peso sobrepasa los 8 caracteres.")
+    @XmlElement(name = "PESO_DETALLE")
     private String pesoDet;
 
     public ELineaDetalleGuia() {

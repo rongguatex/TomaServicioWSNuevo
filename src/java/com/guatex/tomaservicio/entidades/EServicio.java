@@ -5,6 +5,7 @@
  */
 package com.guatex.tomaservicio.entidades;
 
+import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -18,30 +19,41 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class EServicio {
 
+    @NotNull(message = "El campo es obligatorio. Ingresar el tipo de usuario.")
+    @Size(max = 1, message = "El tipo de usuario ingresado no existe y sobrepasa el caracter esperado. Verificar el dato ingresado,.")
     @XmlElement(name = "TIPO_USUARIO")
     private String tipoUsuario;
 
+    @Size(max = 100, message = "El nombre del remitente sobrepasa los 100 caracteres.")
     @XmlElement(name = "NOMBRE_REMITENTE")
     private String nomrem;
 
+    @Size(max = 20, message = "El teléfono del remitente sobrepasa los 20 caracteres.")
     @XmlElement(name = "TELEFONO_REMITENTE")
     private String telrem;
 
+    @Size(max = 100, message = "La dirección del remitente sobrepasa los 100 caracteres.")
     @XmlElement(name = "DIRECCION_REMITENTE")
     private String dirrem;
 
+    @Size(max = 50, message = "El municipio de origen sobrepasa los 50 caracteres.")
     @XmlElement(name = "MUNICIPIO_ORIGEN")
     private String mncpori;
 
+    @Size(max = 10, message = "El punto de origen sobrepasa los 10 caracteres.")
     @XmlElement(name = "PUNTO_ORIGEN")
     private String ptoori;
 
+    @Size(max = 1, message = "El campo esta listo sobrepasa el caracter esperado.")
     @XmlElement(name = "ESTA_LISTO")
     private String estaListo;
 
+    @NotNull(message = "El campo es obligatorio. Ingresar el código de origen.")
+    @Size(max = 10, message = "El código de origen sobrepasa los 10 caracteres.")
     @XmlElement(name = "CODORIGEN")
     private String codorigen;
 
+    @NotNull(message = "El xml enviado viene incompleto. La guía no contiene información.")
     @XmlElement(name = "GUIA")
     private EGUIA EGUIA;
 

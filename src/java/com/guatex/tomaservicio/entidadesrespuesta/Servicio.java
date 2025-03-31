@@ -22,6 +22,8 @@ public class Servicio {
     private String codigo;
     @XmlElement(name = "URLGUIAS")
     private String urlGuias;
+    @XmlElement(name = "GUIAS")
+    private Guias guias;
 
     public String getCodigo() {
         return codigo;
@@ -39,9 +41,17 @@ public class Servicio {
         this.urlGuias = urlGuias;
     }
 
+    public Guias getGuias() {
+        return guias;
+    }
+
+    public void setGuias(Guias guias) {
+        this.guias = guias;
+    }
+
     @Override
     public String toString() {
-        return "Servicio{" + "codigo=" + codigo + ", urlGuias=" + urlGuias + '}';
+        return "Servicio{" + "codigo=" + codigo + ", urlGuias=" + urlGuias + ", guias=" + guias + '}';
     }
 
 }
