@@ -6,6 +6,8 @@
 package com.guatex.tomaservicio.entidades;
 
 
+import com.guatex.tomaservicio.utils.ValidCampo;
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -29,13 +31,16 @@ public class ETomaServicio {
     @XmlElement(name = "USUARIO")
     private String usuario;
 
-    @NotNull(message = "El campo es obligatorio. Ingresar la contraseña.")
-    @Size(max = 10, message = "La contraseña sobrepasa los 10 caracteres.")
+//    @NotNull(message = "El campo es obligatorio. Ingresar la contraseña.")
+//    @Size(max = 10, message = "La contraseña sobrepasa los 10 caracteres.")
+    @ValidCampo(obligatorio = true, maxLength = 10)
     @XmlElement(name = "PASSWORD")
     private String password;
 
-    @NotNull(message = "El xml enviado viene incompleto. El servicio no puede ser null.")
+    //@NotNull(message = "El xml enviado viene incompleto. El servicio no puede ser null.")
+    @ValidCampo(obligatorio = true)
     @XmlElement(name = "SERVICIO")
+    @Valid //que valide guia que se encuentra dentro de servicio
     private EServicio servicio;
 
     public ETomaServicio() {

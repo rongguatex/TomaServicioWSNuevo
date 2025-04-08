@@ -39,7 +39,7 @@ public class TomaServicioService {
         String error = Validador.validar(datos);
         
         if (error != null) {
-            return error;
+            return error; 
         }
         
         System.out.println(datos.toString());

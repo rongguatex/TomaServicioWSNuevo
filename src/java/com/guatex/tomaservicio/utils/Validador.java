@@ -5,11 +5,8 @@
  */
 package com.guatex.tomaservicio.utils;
 
-import com.guatex.tomaservicio.entidades.ETomaServicio;
 import com.guatex.tomaservicio.entidadesrespuesta.Error;
 import com.guatex.tomaservicio.entidadesrespuesta.Respuesta;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -22,12 +19,15 @@ import javax.validation.ValidatorFactory;
  */
 public class Validador {
 
-    public static String validar(ETomaServicio datos) {
+         private static final  ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+         private static final Validator validator = factory.getValidator();
+         
+        public static <T> String validar(T datos) {
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+        //ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        //Validator validator = factory.getValidator();
 
-        Set<ConstraintViolation<ETomaServicio>> violations = validator.validate(datos);
+        Set<ConstraintViolation<T>> violations = validator.validate(datos);
 
         if (violations.isEmpty()) {
             return null;
@@ -35,7 +35,7 @@ public class Validador {
 
         Respuesta respuesta = new Respuesta();
         Error error = new Error();
-        for (ConstraintViolation<ETomaServicio> violation : violations) {
+        for (ConstraintViolation<T> violation : violations) {
             error.setDescripcion(violation.getMessage());
         }
         respuesta.setError(error);

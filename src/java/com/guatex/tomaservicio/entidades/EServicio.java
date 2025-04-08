@@ -5,6 +5,7 @@
  */
 package com.guatex.tomaservicio.entidades;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -55,6 +56,7 @@ public class EServicio {
 
     @NotNull(message = "El xml enviado viene incompleto. La guía no contiene información.")
     @XmlElement(name = "GUIA")
+    @Valid //que valide guia que se encuentra dentro de guia
     private EGUIA EGUIA;
 
     public EServicio() {

@@ -5,6 +5,7 @@
  */
 package com.guatex.tomaservicio.entidades;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -71,6 +72,7 @@ public class EGUIA {
    
    @NotNull(message = "El xml enviado viene incompleto. El detalle de la guía no contiene información.")
    @XmlElement(name = "DETALLE_GUIA")
+   @Valid //que valide guia que se encuentra dentro del detalle
    private EDetalleGuia detGuia;
    
    @Size(max = 100, message = "Las observaciones de la entrega sobrepasa los 100 caracteres.")
