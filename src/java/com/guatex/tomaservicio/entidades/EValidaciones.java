@@ -5,7 +5,6 @@
  */
 package com.guatex.tomaservicio.entidades;
 
-import com.guatex.tomaservicio.utils.CatalogoErrores;
 import com.guatex.tomaservicio.utils.ValidCampo;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -27,7 +26,7 @@ public class EValidaciones implements ConstraintValidator<ValidCampo, Object> {
     public void initialize(ValidCampo constraintAnnotation) {
         this.obligatorio = constraintAnnotation.obligatorio();
         this.maxLength = constraintAnnotation.maxLength();
-        this.tagElement = constraintAnnotation.message();
+        this.tagElement = constraintAnnotation.tagElement();
     }
 
     @Override
@@ -35,7 +34,7 @@ public class EValidaciones implements ConstraintValidator<ValidCampo, Object> {
 
         if (obligatorio && (valor == null || valor.toString().isEmpty())) {//si se tiene la restriccion pero es falsa o se encuntra vacio
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("El campo es obligatorio.").addConstraintViolation();
+            context.buildConstraintViolationWithTemplate("El campo " + tagElement + " no fue encontrado y es obligatorio.").addConstraintViolation();
             return false;
         }
 
@@ -43,7 +42,7 @@ public class EValidaciones implements ConstraintValidator<ValidCampo, Object> {
             String stringValue = valor.toString();
             if (stringValue.length() > maxLength) {
                 context.disableDefaultConstraintViolation();
-                context.buildConstraintViolationWithTemplate("El valor ingresado  en" + tagElement+ "sobrepasa la cantidad maxima de " + maxLength+ " caracteres permitidos.").addConstraintViolation();
+                context.buildConstraintViolationWithTemplate("El valor ingresado en " + tagElement+ " sobrepasa la cantidad maxima de " + maxLength+ " caracteres permitidos.").addConstraintViolation();
                 return false;
             }
         }

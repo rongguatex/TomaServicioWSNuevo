@@ -8,7 +8,6 @@ package com.guatex.tomaservicio.entidades;
 
 import com.guatex.tomaservicio.utils.ValidCampo;
 import javax.validation.Valid;
-import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -22,22 +21,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ETomaServicio {
 
-    @Size(max = 10, message = "El código de cobro sobrepasa los 10 caracteres.")
+    @ValidCampo(maxLength = 10, tagElement = "CODIGO_COBRO")
     @XmlElement(name = "CODIGO_COBRO")
     private String padre;
 
-    @NotNull(message = "El campo es obligatorio. Ingresar el usuario.")
-    @Size(max = 50, message = "El campo de usuario sobrepasa los 50 caracteres.")
+    @ValidCampo(obligatorio = true, maxLength = 50, tagElement = "USUARIO")
     @XmlElement(name = "USUARIO")
     private String usuario;
 
-//    @NotNull(message = "El campo es obligatorio. Ingresar la contraseña.")
-//    @Size(max = 10, message = "La contraseña sobrepasa los 10 caracteres.")
-    @ValidCampo(obligatorio = true, maxLength = 10)
+    @ValidCampo(obligatorio = true, maxLength = 10, tagElement = "PASSWORD")
     @XmlElement(name = "PASSWORD")
     private String password;
 
-    //@NotNull(message = "El xml enviado viene incompleto. El servicio no puede ser null.")
     @ValidCampo(obligatorio = true)
     @XmlElement(name = "SERVICIO")
     @Valid //que valide guia que se encuentra dentro de servicio
